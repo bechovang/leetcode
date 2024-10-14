@@ -1,0 +1,44 @@
+13 Hàm Thông Dụng Trong Vector
+Khi nhắc tới C++ thì Vector là một phần không thể thiếu, nên trong bài viết này mình xin được tổng hợp một số hàm mà mình hay gặp trong khi học mời các bạn đọc tham khảo và góp ý.
+
+Khai báo
+    #include <vector>
+Khởi tạo
+    Cách 1: vector<kiểu dữ liệu> name;
+    Cách 2: vector<kiểu dữ liệu> name(size);
+    Cách 3: vector<kiểu dữ liệu> vectorA(vectorB);
+    Trả về vị trí tham chiếu tới ... vector
+    Đầu: vt.begin()
+    Cuối: vt.end() // hoặc vt.begin() + vt.size()
+Thêm phần tử
+    Cách 1: vt.push_back(value); //thêm phần tử vào cuối của vector
+    Cách 2: vt[pos] = value; //gán giá trị như mảng
+Chèn
+    vt.insert(pos, value); //chèn value vào vị trí pos
+Xóa phần tử
+    Cách 1: vt.pop_back(); //xóa phần tử cuối của vector
+    Cách 2: vt.erase(pos); //xóa 1 phần tử ở vị trí pos
+    Cách 3: vt.erase(first , last); //xóa phần tử từ vị trí first tới last
+    Cách 4: vt.clear(); //xóa tất cả phần tử trong vector
+Lấy số lượng phần tử
+    vt.size();
+Lấy phần tử
+    Cách 1: vt[pos] // truy cập trực tiếp vị trí pos (tính từ 0)
+    Cách 2: vt.fornt(); //lấy phần tử đầu vector
+    Cách 3: vt.back(); //lấy phần tử cuối vector
+    Cách 4: vt.at(pos); lấy phần tử vị trí pos (tính từ 0)
+Kiểm tra vector giỗng
+    vt.empty();
+Sắp xếp theo thứ tự tăng dần
+    sort(first, last); // sắp xếp từ vị trí first tới last
+    Ví dụ 1: sort(vt.begin(), vt.end()); //sắp xếp cả mảng
+    Ví dụ 2: sort(vt.begin()+2, vt.begin()+5); //sắp xếp các phần tử từ vị trí 2 tới 5
+Tìm kiếm
+    Cách 1: find // chi tiết cpp
+    Cách 2: search // chi tiết cpp
+Đảo ngược 
+    reverse(first, last);
+    Ví dụ 1: reverse(vt.begin(), vt.end());  //đảo ngược cả vector 
+    Ví dụ 2: reverse(vt.begin(), vt.begin()+2); //đảo ngược từ vị trí đầu tới vị trí đầu +2;
+Đổi 2 vector
+    swap(vta, vtb); //tất cả các phần tử của vta được gán cho vtb và ngược lại

@@ -1,0 +1,62 @@
+///Be cho vang
+// Binary search ko ra đâu
+// dùng quy hoạch động dp[i][j] = max sum từ i --> j
+// qhd ko được vì nó chỉ đc n^2
+
+
+#include <bits/stdc++.h>
+#define endl '\n'
+#define faster ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+//#define int long long
+using namespace std;
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        vector <int> prefix;
+        prefix.resize(nums.size()+1);
+        prefix[0]=0;
+        for (int i=1;i<=nums.size();i++){
+            prefix[i]=prefix[i-1]+nums[i-1];
+        }
+
+        int n=nums.size();
+        int max_sum=INT_MIN;
+        for (int i=1;i<=n;i++){
+            for (int j=i;j<=n;j++){
+                int sum=prefix[j]-prefix[i-1];
+                max_sum=max(max_sum, sum);
+            }
+        }
+
+
+
+
+        //debug
+        for (int i=0;i<prefix.size();i++){
+            cout<<prefix[i]<<' ';
+        }
+
+
+        return max_sum;
+    }
+};
+
+signed main()
+{
+    faster;
+    freopen("input.inp","r",stdin);
+    freopen("output.out","w",stdout);
+    vector <int> a;
+
+    int n; cin>>n;
+    for (int i=0;i<n;i++){
+        int x; cin>>x;
+        a.push_back(x);
+    }
+
+    Solution s;
+    int ans= s.maxSubArray(a);
+    cout<<endl<<"dap an: "<<ans;
+    return 0;
+}
