@@ -1,4 +1,8 @@
 ///Be cho vang
+// water = min(maxL, maxR) - height[i]
+// use 2 pointer
+    // if R is higher L
+    // put L to middle, and R can cover it
 
 #include <bits/stdc++.h>
 #define endl '\n'
@@ -6,46 +10,30 @@
 //#define int long long
 using namespace std;
 
-int calculate_water(int i, int j, vector<int>height){
-    int minn= min(height[i],height[j]);
-    int dist= j-i-1;
-    int sum_inside=0;
-    for (int k=i+1;k<=j-1;k++){
-        sum_inside+=min(minn,height[k]);
-    }
-
-    return max(0,(minn*dist) - sum_inside );
-}
-
 
 class Solution {
 public:
     int trap(vector<int>& height) {
         int ans=0;
         
-        int n=height.size();
-        int i=0;
-        int j=1;
-        while (i<n-1 and j<n){
-            int x=calculate_water(i,j,height);
-            if (x>0){
-                ans=ans+ x;
+        int L=0;
+        int R=height.size()-1;
+        int maxL=0;
+        int maxR=0;
 
-                int minn= min(height[i],height[j]);
-                for (int k=i+1;k<=j-1;k++){
-                    height[k]=minn;
-                }
-            }
-            
+        while (L<=R){
+            maxL = max(maxL, height[L]);
+            maxR = max(maxR, height[R]);
 
-            if (height[j]>height[i]){
-                i=j;
-                j=i+1;
-                continue;
+            if (height[L]>=height[R]){
+                ans=ans + max(0, (min(maxL,maxR) - height[R]));
+                R--;
+            } 
+            else{
+                ans=ans + max(0, (min(maxL,maxR) - height[L]));
+                L++;
             }
-            j++;
         }
-
 
         return ans;
     }
