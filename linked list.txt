@@ -1,0 +1,12 @@
+-  link list nó giống cộng dây xích, lúc mình trỏ vào dây xích 
+-  là mình trỏ vào cái node đầu tiên của dây xích (xem lại cách khai 
+ báo link list)
+
+- https://www.programiz.com/c-programming/c-pointers
+
+- https://www.programiz.com/c-programming/c-structures-pointers
+
+- https://www.programiz.com/dsa/linked-list
+
+- https://www.programiz.com/dsa/linked-list-operations
+

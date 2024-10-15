@@ -16,6 +16,7 @@
         "được",
         "fornt",
         "giải",
+        "giống",
         "giỗng",
         "hoặc",
         "hoạch",
@@ -65,7 +66,8 @@
         "trung",
         "Truy",
         "viết",
-        "vùng"
+        "vùng",
+        "xích"
     ],
     "files.associations": {
         "iostream": "cpp",
