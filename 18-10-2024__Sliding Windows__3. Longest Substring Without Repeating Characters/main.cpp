@@ -27,7 +27,7 @@ public:
                 hm[s[i]]=false;
                 i++;
                 
-                if (i>j){
+                if (i>j){ //new window
                     j=i;
                     hm[s[j]]=true;
                 }
