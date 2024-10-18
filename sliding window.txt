@@ -1,0 +1,3 @@
+
+- Sliding window có nghĩa là 
+lấy i,j làm 2 cạnh của cửa sổ trượt
