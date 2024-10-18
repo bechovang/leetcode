@@ -6,38 +6,36 @@
 //#define int long long
 using namespace std;
 
-void set_up_map(map <char, int> &hm, string s){
-    for (auto x: s) hm[x]=-1;
-}
 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         int ans=0;
-
-        int n= s.size();
-        int length=0;
         
-        //set up map
-        map <char, int> set_up;
-        set_up_map(set_up, s);
+        int n=s.size();
 
-        map <char, int> hm;
-        hm=set_up;
+        map <char, bool> hm;
 
         int i=0;
-        while (i!=n){
-            if (hm[s[i]]==-1){
-                length++;
-                ans=max(ans,length);
-                hm[s[i]]=i;
+        int j=0;
+        hm[s[j]]=true;
+
+        while (j!=n){
+            ans=max(ans, j-i+1);
+
+            if (hm[s[j+1]]==true){
+                hm[s[i]]=false;
                 i++;
+                
+                if (i>j){
+                    j=i;
+                    hm[s[j]]=true;
+                }
+                continue;
             }
-            else{
-                i=hm[s[i]]+1;
-                length=0;
-                hm=set_up;
-            }
+
+            j++;
+            hm[s[j]]=true;
         }
 
         return ans;
