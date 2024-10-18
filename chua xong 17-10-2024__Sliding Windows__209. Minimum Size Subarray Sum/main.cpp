@@ -14,29 +14,41 @@ using namespace std;
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
+        int ans=INT_MAX;
+
         int n=nums.size();
         int minn=INT_MAX;
 
-        //prefix sum
-        vector<int> pf;
-        pf.resize(n+1);
-        
-
-
-        for (int sz=0;sz<n;sz++){
-            for (int i=0;i< n-sz ;i++){
-                //sum
-                int sum=0;
-                for (int k=i;k<= i+sz; k++ ){
-                    sum=sum+nums[k];
-                }
-                if (sum>=target)
-                    minn=min(minn, sz+1);
+        int i=0; 
+        int j=0;
+        int sum=nums[0];
+        while (j!=n-1){
+            if (sum>=target){
+                ans=min(ans,j-i+1);
             }
+            
+            if(sum-nums[i] >= target){
+                sum = sum-nums[i];
+                i++;
+                continue;
+            }
+
+            j++;
+            sum=sum+nums[j];
         }
 
-        if (minn==INT_MAX) return 0;
-        return minn;
+        while (i!=n-1){
+            if(sum-nums[i] < target)
+                break;
+            sum = sum-nums[i];
+            i++;
+        }
+        if (sum>=target){
+            ans=min(ans,j-i+1);
+        }
+
+        if (ans==INT_MAX) return 0;
+        return ans;
     }
 };
 
