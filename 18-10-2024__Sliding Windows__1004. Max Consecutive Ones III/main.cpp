@@ -20,34 +20,49 @@ public:
     int longestOnes(vector<int>& nums, int k) {
         int ans=0;
 
-
         int n=nums.size();
+        int k_max=k;
 
-        int start=0;
-        while(start<n){
-            //skip
-            if (start > 0 && nums[start-1] == 1){
-                while(nums[start]!=0 and start<n)
-                    start++;
-            }
-            
-            int i;
-            int tmp=k;
-            for (i=start;i<n;i++){
-                //flip
-                if (nums[i]==0 and tmp>0){
-                    tmp--;
-                    continue;
-                }
+        int i=0;
+        int j=0;
+        if (nums[j]==0 and k>0){
+            k--;
+            ans++;
+        }
 
-                if (nums[i]==0){
-                    break;
-                }
+        while (j<n){
+            if (i==j and nums[i]==0 and k==0) {
+                i++;
+                j++;
+                continue;
             }
 
-            ans=max(ans, i-start);                
-        
-            start++;
+            ans=max(ans, j-i+1);
+
+
+
+            if (j+1<n and nums[j+1]==0 and k>0){
+                j++;
+                k--;
+                continue;
+            }
+
+            if (j+1<n and k==0 and nums[j+1]==0){
+                while (i<n and nums[i]!=0 ){
+                    i++;
+                } 
+                
+                if (k+1<=k_max)
+                    k++;
+                
+                i++;
+
+                j=max(i,j);
+                continue;
+            }
+
+
+            j++;
         }
     
         return ans;
