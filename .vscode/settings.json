@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
+        "ADOBECODEBANC",
+        "bảng",
         "buoc",
         "Cách",
         "chèn",
@@ -44,6 +46,7 @@
         "phạm",
         "phân",
         "phần",
+        "rộng",
         "sadsa123",
         "tăng",
         "tham",
@@ -74,6 +77,7 @@
         "iostream": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "span": "cpp"
     }
 }
