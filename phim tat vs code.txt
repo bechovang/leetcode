@@ -1,0 +1,7 @@
+Vo  File > Preferences > Keyboard Shortcuts để chỉnh các phím
+
+copyLinesDownAction : ctrl + alt + .
+
+copyLinesUpAction : ctrl + alt + ,
+
+delete line : ctrl + shift + K

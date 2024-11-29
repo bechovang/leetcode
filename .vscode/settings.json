@@ -78,6 +78,9 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "bitset": "cpp",
+        "algorithm": "cpp",
+        "new": "cpp"
     }
 }
